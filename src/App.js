@@ -17,11 +17,14 @@ function TBodyItem(props) {
 
 function Week(props) {
   const { week, nowDaysNumber, day } = props;
-  let q = [];
+  let arrayfilter = [];
   nowDaysNumber.map(
-    (item, i) => (q[i] = <TBodyItem key={i} item={item} i={i} day={day} />)
+    (item, i) =>
+      (arrayfilter[i] = <TBodyItem key={i} item={item} i={i} day={day} />)
   );
-  return <tr>{q.filter((o, i) => i < week * 7 && i >= (week - 1) * 7)}</tr>;
+  return (
+    <tr>{arrayfilter.filter((o, i) => i < week * 7 && i >= (week - 1) * 7)}</tr>
+  );
 }
 
 function TBodyDays(props) {
